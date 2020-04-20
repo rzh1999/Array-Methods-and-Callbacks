@@ -29,7 +29,9 @@ fifaData.forEach(function(item){
 function getFinals(fifaData) {
     const finals = [];
     fifaData.forEach(function(item){
+        if(item["Stage"] === "Final"){
         finals.push(item["Stage"])
+        }
     });
     return finals;
 };
@@ -39,12 +41,9 @@ console.log(getFinalsResult)
 
 /* Task 3: Impliment a higher-order function called `getYears` that accepts the callback function `getFinals`, and returns an array called `years` containing all of the years in the dataset */
 const finals = getFinals(fifaData);
-function getYears(finals) {
-   
-    return finals;
-    
-    /* code here */
 
+function getYears(finals) {
+    return finals;
 };
 
 const result = getYears(finals);
@@ -53,7 +52,7 @@ console.log(result)
 
 /* Task 5: Impliment a higher-order function called `getWinners`, that accepts the callback function `getFinals()` and determine the winner (home or away) of each `finals` game. Return the name of all winning countries in an array called `winners` */ 
 
-function getWinners(/* code here */) {
+function getWinners(finals) {
 
     /* code here */
 
