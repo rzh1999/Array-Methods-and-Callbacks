@@ -114,24 +114,24 @@ function getCountryWins(fifaData, initials) {
    const newFilter =  fifaData.filter(function(item){ 
         return item["Stage"] === "Final"
     });
-    
-    
+   console.log('newFilter ${newFilter}')
    
 }
 
-getCountryWins(fifaData, "ITA");
+
 
 
 /* Task 8: Write a function called getGoals() that accepts a parameter `data` 
 and returns the team with the most goals score per appearance (average goals for) in the World Cup finals */
 
-function getGoals(/* code here */) {
+function getGoals(data) {
 
-    /* code here */
+     
+    
 
 };
 
-getGoals();
+getGoals(fifaData);
 
 
 /* Task 9: Write a function called badDefense() that accepts a parameter `data` and calculates the team with the most 
@@ -149,13 +149,32 @@ badDefense();
 /* Task 10: Write a function called `getAverageGoals` that accepts a parameter `data` and returns the the average 
 number of home team goals and away team goals scored per match (Hint: use .reduce and do this in 2 steps) */
 
-function getAverageGoals(/* code here */) {
+function getAverageGoals(array) {
+    const homeTeamGoals = [];
+     array.forEach(function(item){
+        homeTeamGoals.push(item["Home Team Goals"])
+     });
+     const len = homeTeamGoals.length;
+     const homeAvg = homeTeamGoals.reduce((a,b) => (a + b)) /len
+     const homeAverage = homeAvg.toFixed(2)
 
-    /* code here */
+     const awayTeamGoals = [];
+     array.forEach(function(item){
+        awayTeamGoals.push(item["Away Team Goals"])
+     });
+     
+     const awayAvg = awayTeamGoals.reduce((a,b) => (a + b)) /awayTeamGoals.length
+     const awayAverage = awayAvg.toFixed(2)
 
-};
+      return `Home Team goals Average ${homeAverage} and Away Teams Goals Average ${awayAverage} `
+        
+        
+}
 
-getAverageGoals();
+
+
+let results2 = getAverageGoals(fifaData);
+console.log(results2)
 
 
 /// STRETCH 🥅 //
